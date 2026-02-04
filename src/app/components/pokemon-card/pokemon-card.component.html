@@ -1,0 +1,45 @@
+<div class="pokemon-card h-100" *ngIf="pokemon">
+  <div class="card h-100 shadow-sm">
+    <div class="card-img-top-wrapper">
+      <img 
+        [src]="pokemon.imageUrl" 
+        [alt]="pokemon.normalizedName"
+        class="card-img-top"
+        loading="lazy"
+      />
+    </div>
+    <div class="card-body d-flex flex-column">
+      <div class="pokemon-id text-muted small">#{{ pokemon.id.toString().padStart(3, '0') }}</div>
+      <h5 class="card-title text-center mb-3">{{ pokemon.normalizedName }}</h5>
+      
+      <!-- Types -->
+      <div class="mb-3">
+        <div class="d-flex gap-2 justify-content-center flex-wrap">
+          <span 
+            *ngFor="let type of pokemon.types" 
+            class="badge type-badge"
+            [style.background-color]="getTypeColor(type.name)"
+          >
+            {{ type.name }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Abilities -->
+      <div class="mt-auto">
+        <p class="small text-muted mb-1"><strong>Abilities:</strong></p>
+        <div class="abilities-list">
+          <span *ngFor="let ability of pokemon.abilities; let last = last" class="small">
+            {{ ability.name }}<span *ngIf="!last">, </span>
+          </span>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <button class="btn btn-primary btn-sm mt-3 w-100">
+        View Details
+      </button>
+    </div>
+  </div>
+</div>
+
