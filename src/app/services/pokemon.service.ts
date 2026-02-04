@@ -18,9 +18,18 @@ export class PokemonService {
    */
   getRandomPokemon(count: number = 30): Observable<Pokemon[]> {
     const randomIds = this.getRandomIds(count);
-    const requests = randomIds.map(id => this.getPokemonById(id));
+    const requests = randomIds.map(id => 
+      this.getPokemonById(id).pipe(
+        catchError(error => {
+          console.error(`Failed to fetch pokemon ${id}:`, error);
+          return of(null as any);
+        })
+      )
+    );
     
-    return forkJoin(requests);
+    return forkJoin(requests).pipe(
+      map(pokemons => pokemons.filter(p => p !== null))
+    );
   }
 
   /**
@@ -31,7 +40,7 @@ export class PokemonService {
       map(response => this.transformPokemon(response)),
       catchError(error => {
         console.error('Error fetching pokemon:', error);
-        return of(null as any);
+        throw error;
       })
     );
   }
@@ -44,7 +53,7 @@ export class PokemonService {
       map(response => this.transformPokemon(response)),
       catchError(error => {
         console.error('Error fetching pokemon:', error);
-        return of(null as any);
+        throw error;
       })
     );
   }

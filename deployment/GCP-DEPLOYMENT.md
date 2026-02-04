@@ -54,8 +54,8 @@ gcloud compute firewall-rules create allow-https \
 # SSH into the VM
 gcloud compute ssh pokemon-app-vm --zone=us-central1-a
 
-# Clone the repository
-git clone https://github.com/juanmanuelgg/PruebaTecnicaFrontendAngular.git
+# Clone the repository (replace with your fork if needed)
+git clone https://github.com/YOUR_USERNAME/PruebaTecnicaFrontendAngular.git
 cd PruebaTecnicaFrontendAngular
 
 # Run the deployment script
@@ -109,9 +109,9 @@ sudo apt-get install -y git
 sudo mkdir -p /var/www/pokemon-app
 sudo chown -R $USER:$USER /var/www/pokemon-app
 
-# Clone repository
+# Clone repository (replace with your fork if needed)
 cd /var/www/pokemon-app
-git clone https://github.com/juanmanuelgg/PruebaTecnicaFrontendAngular.git .
+git clone https://github.com/YOUR_USERNAME/PruebaTecnicaFrontendAngular.git .
 
 # Install dependencies and build
 npm ci

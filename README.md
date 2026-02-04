@@ -68,7 +68,7 @@ The build artifacts will be stored in the `dist/pokemon-app/` directory.
 
 For detailed instructions on deploying to Google Cloud Platform VM, see [GCP Deployment Guide](deployment/GCP-DEPLOYMENT.md).
 
-**Quick deployment:**
+**Quick deployment with automated script:**
 ```bash
 # 1. Create GCP VM instance
 gcloud compute instances create pokemon-app-vm \
@@ -89,6 +89,20 @@ git clone https://github.com/juanmanuelgg/PruebaTecnicaFrontendAngular.git
 cd PruebaTecnicaFrontendAngular
 chmod +x deployment/deploy-gcp-vm.sh
 ./deployment/deploy-gcp-vm.sh
+```
+
+**Or deploy with Docker:**
+```bash
+# On your GCP VM
+git clone https://github.com/juanmanuelgg/PruebaTecnicaFrontendAngular.git
+cd PruebaTecnicaFrontendAngular
+
+# Using Docker Compose
+docker-compose up -d
+
+# Or using Docker directly
+docker build -t pokemon-app .
+docker run -d -p 80:80 pokemon-app
 ```
 
 ### Deploy to Vercel
@@ -140,10 +154,20 @@ src/
 │   │   └── pokemon.service.ts   # PokéAPI service
 │   ├── models/
 │   │   └── pokemon.model.ts     # TypeScript interfaces
+│   ├── utils/
+│   │   └── pokemon-types.util.ts # Shared utilities for type colors
 │   ├── app-routing.module.ts    # Route configuration
 │   └── app.module.ts            # Main module
 ├── styles.scss                   # Global styles
 └── index.html                    # Main HTML file
+
+deployment/
+├── deploy-gcp-vm.sh              # Automated GCP VM deployment script
+├── GCP-DEPLOYMENT.md             # Comprehensive GCP deployment guide
+└── nginx.conf                    # Nginx configuration for production
+
+Dockerfile                        # Docker container configuration
+docker-compose.yml                # Docker Compose orchestration
 ```
 
 ## 🎯 Key Implementation Details
