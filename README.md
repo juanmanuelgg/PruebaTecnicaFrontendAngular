@@ -2,7 +2,7 @@
 
 ![Pokémon Gallery](https://github.com/user-attachments/assets/d7528465-7dbe-4bea-8f97-cfafb21401c2)
 
-A beautiful Angular 16 web application that consumes the PokéAPI to display a gallery of 30 random Pokémon with their names, images, abilities, and types. Each Pokémon card has a call-to-action button that opens a detailed modal view, with the URL reflecting the current state for direct access.
+A beautiful Angular 19 web application that consumes the PokéAPI to display a gallery of 30 random Pokémon with their names, images, abilities, and types. Each Pokémon card has a call-to-action button that opens a detailed modal view, with the URL reflecting the current state for direct access.
 
 ## ✨ Features
 
@@ -19,7 +19,7 @@ A beautiful Angular 16 web application that consumes the PokéAPI to display a g
 
 ## 🛠️ Technologies Used
 
-- **Angular 16.2.16**: Modern web framework
+- **Angular 19.2.18**: Modern web framework (upgraded from 16 for security patches)
 - **TypeScript**: Type-safe development
 - **Bootstrap 5**: Responsive UI components and styling
 - **SCSS**: Enhanced styling capabilities

@@ -4,9 +4,10 @@ import { PokemonService } from '../../services/pokemon.service';
 import { Pokemon } from '../../models/pokemon.model';
 
 @Component({
-  selector: 'app-pokemon-gallery',
-  templateUrl: './pokemon-gallery.component.html',
-  styleUrls: ['./pokemon-gallery.component.scss']
+    selector: 'app-pokemon-gallery',
+    templateUrl: './pokemon-gallery.component.html',
+    styleUrls: ['./pokemon-gallery.component.scss'],
+    standalone: false
 })
 export class PokemonGalleryComponent implements OnInit {
   pokemons: Pokemon[] = [];

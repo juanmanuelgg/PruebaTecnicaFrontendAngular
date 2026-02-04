@@ -3,9 +3,10 @@ import { Pokemon } from '../../models/pokemon.model';
 import { getTypeColor } from '../../utils/pokemon-types.util';
 
 @Component({
-  selector: 'app-pokemon-card',
-  templateUrl: './pokemon-card.component.html',
-  styleUrls: ['./pokemon-card.component.scss']
+    selector: 'app-pokemon-card',
+    templateUrl: './pokemon-card.component.html',
+    styleUrls: ['./pokemon-card.component.scss'],
+    standalone: false
 })
 export class PokemonCardComponent {
   @Input() pokemon!: Pokemon;
