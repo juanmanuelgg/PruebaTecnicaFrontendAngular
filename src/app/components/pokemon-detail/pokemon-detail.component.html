@@ -1,0 +1,58 @@
+<div class="pokemon-detail" *ngIf="pokemon">
+  <div class="row">
+    <!-- Image Section -->
+    <div class="col-md-5 text-center">
+      <div class="pokemon-image-wrapper">
+        <img 
+          [src]="pokemon.imageUrl" 
+          [alt]="pokemon.normalizedName"
+          class="pokemon-image img-fluid"
+        />
+      </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="col-md-7">
+      <div class="pokemon-info">
+        <div class="pokemon-id text-muted mb-2">#{{ pokemon.id.toString().padStart(3, '0') }}</div>
+        <h2 class="pokemon-name mb-3">{{ pokemon.normalizedName }}</h2>
+
+        <!-- Types -->
+        <div class="mb-4">
+          <h6 class="text-muted mb-2">Type</h6>
+          <div class="d-flex gap-2 flex-wrap">
+            <span 
+              *ngFor="let type of pokemon.types" 
+              class="badge type-badge-large"
+              [style.background-color]="getTypeColor(type.name)"
+            >
+              {{ type.name }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Abilities -->
+        <div class="mb-4">
+          <h6 class="text-muted mb-2">Abilities</h6>
+          <div class="abilities-grid">
+            <div 
+              *ngFor="let ability of pokemon.abilities" 
+              class="ability-item"
+            >
+              <span class="ability-icon">⚡</span>
+              <span class="ability-name">{{ ability.name }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="alert alert-info">
+          <strong>💡 Did you know?</strong> This Pokémon has {{ pokemon.abilities.length }} 
+          {{ pokemon.abilities.length === 1 ? 'ability' : 'abilities' }} and is 
+          a {{ getTypeNames() }} type!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

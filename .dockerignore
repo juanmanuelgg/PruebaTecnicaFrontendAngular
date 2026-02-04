@@ -1,0 +1,13 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+.editorconfig
+.angular
+.vscode
+dist
+coverage
+.DS_Store
+Thumbs.db
+*.md
+!deployment/*.md
